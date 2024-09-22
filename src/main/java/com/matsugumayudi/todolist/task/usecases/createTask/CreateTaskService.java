@@ -13,7 +13,7 @@ public class CreateTaskService {
     private TaskRepository taskRepository;
 
     public CreateTaskOutputDto execute(CreateTaskInputDto data) {
-        Task task = new Task(data);
+        Task task = new Task(data.title(), data.description());
 
         this.taskRepository.save(task);
 

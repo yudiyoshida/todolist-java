@@ -12,10 +12,17 @@ public class Task {
     private String description;
     private Boolean completed;
 
-    public Task(CreateTaskInputDto data) {
+    public Task(String title, String description) {
         this.id = UUID.randomUUID().toString();
-        this.title = data.title().trim();
-        this.description = data.description().trim();
+        this.title = title;
+        this.description = description;
+        this.completed = false;
+    }
+
+    public Task(String id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
         this.completed = false;
     }
 }

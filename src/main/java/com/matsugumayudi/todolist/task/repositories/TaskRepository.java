@@ -3,25 +3,25 @@ package com.matsugumayudi.todolist.task.repositories;
 import com.matsugumayudi.todolist.task.entities.Task;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Repository
 public class TaskRepository {
-    private final List<Task> tasks = new ArrayList<>();
+    private final Map<String, Task> tasks = new HashMap<>();
 
     public void save(Task task) {
-        this.tasks.add(task);
+        this.tasks.put(task.getId(), task);
     }
 
     public List<Task> findAll() {
-        return this.tasks;
+        return this.tasks.values().stream().toList();
     }
 
     public Optional<Task> findById(String id) {
-        return this.tasks.stream()
-                .filter(task -> task.getId().equals(id))
-                .findFirst();
+        return Optional.ofNullable(this.tasks.get(id));
+    }
+
+    public void edit(Task task) {
+        this.tasks.put(task.getId(), task);
     }
 }

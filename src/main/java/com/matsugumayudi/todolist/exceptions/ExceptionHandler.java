@@ -13,31 +13,26 @@ import java.util.List;
 public class ExceptionHandler {
     @org.springframework.web.bind.annotation.ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Exception> handleHttpMessageNotReadable(HttpMessageNotReadableException ex) {
-        List<String> errors = List.of("Request body is required");
-
-        return ResponseEntity.badRequest().body(new Exception(errors));
+        return ResponseEntity.badRequest().body(new Exception("Request body is required"));
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ResponseEntity<Exception> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex) {
-        List<String> errors = List.of("Method not allowed");
-
-        return ResponseEntity.status(405).body(new Exception(errors));
+        return ResponseEntity.status(405).body(new Exception("Method not allowed"));
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Exception> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
-        List<String> errors = ex.getBindingResult().getAllErrors().stream()
+        String error = ex.getBindingResult().getAllErrors().stream()
+            .findFirst()
             .map(ObjectError::getDefaultMessage)
-            .toList();
+            .orElse("Validation error");
 
-        return ResponseEntity.badRequest().body(new Exception(errors));
+        return ResponseEntity.badRequest().body(new Exception(error));
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Exception> handleNotFoundException(NotFoundException ex) {
-        List<String> errors = List.of(ex.getMessage());
-
-        return ResponseEntity.status(404).body(new Exception(errors));
+        return ResponseEntity.status(404).body(new Exception(ex.getMessage()));
     }
 }
