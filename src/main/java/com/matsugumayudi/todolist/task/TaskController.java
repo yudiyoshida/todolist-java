@@ -1,10 +1,11 @@
 package com.matsugumayudi.todolist.task;
 
 import com.matsugumayudi.todolist.task.dtos.TaskDto;
-import com.matsugumayudi.todolist.task.usecases.createtask.CreateTaskService;
-import com.matsugumayudi.todolist.task.usecases.createtask.dtos.CreateTaskInputDto;
-import com.matsugumayudi.todolist.task.usecases.createtask.dtos.CreateTaskOutputDto;
-import com.matsugumayudi.todolist.task.usecases.listtasks.ListTaskService;
+import com.matsugumayudi.todolist.task.usecases.createTask.CreateTaskService;
+import com.matsugumayudi.todolist.task.usecases.createTask.dtos.CreateTaskInputDto;
+import com.matsugumayudi.todolist.task.usecases.createTask.dtos.CreateTaskOutputDto;
+import com.matsugumayudi.todolist.task.usecases.findTaskById.FindTaskByIdService;
+import com.matsugumayudi.todolist.task.usecases.listTasks.ListTaskService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,9 @@ public class TaskController {
     @Autowired
     private ListTaskService listTaskService;
 
+    @Autowired
+    private FindTaskByIdService findTaskByIdService;
+
     @PostMapping
     public ResponseEntity<CreateTaskOutputDto> createTask(@Valid @RequestBody CreateTaskInputDto body) {
         var result = this.createTaskService.execute(body);
@@ -31,6 +35,13 @@ public class TaskController {
     @GetMapping
     public ResponseEntity<List<TaskDto>> listTasks() {
         var result = this.listTaskService.execute();
+
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TaskDto> findTaskById(@PathVariable String id) {
+        var result = this.findTaskByIdService.execute(id);
 
         return ResponseEntity.ok(result);
     }

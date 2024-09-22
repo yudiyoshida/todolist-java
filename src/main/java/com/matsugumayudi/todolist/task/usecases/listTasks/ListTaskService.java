@@ -1,4 +1,4 @@
-package com.matsugumayudi.todolist.task.usecases.listtasks;
+package com.matsugumayudi.todolist.task.usecases.listTasks;
 
 import com.matsugumayudi.todolist.task.dtos.TaskDto;
 import com.matsugumayudi.todolist.task.entities.Task;

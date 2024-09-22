@@ -33,4 +33,11 @@ public class ExceptionHandler {
 
         return ResponseEntity.badRequest().body(new Exception(errors));
     }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<Exception> handleNotFoundException(NotFoundException ex) {
+        List<String> errors = List.of(ex.getMessage());
+
+        return ResponseEntity.status(404).body(new Exception(errors));
+    }
 }

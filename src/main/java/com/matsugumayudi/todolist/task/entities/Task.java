@@ -1,6 +1,6 @@
 package com.matsugumayudi.todolist.task.entities;
 
-import com.matsugumayudi.todolist.task.usecases.createtask.dtos.CreateTaskInputDto;
+import com.matsugumayudi.todolist.task.usecases.createTask.dtos.CreateTaskInputDto;
 import lombok.Getter;
 
 import java.util.UUID;

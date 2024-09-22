@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class TaskRepository {
@@ -16,5 +17,11 @@ public class TaskRepository {
 
     public List<Task> findAll() {
         return this.tasks;
+    }
+
+    public Optional<Task> findById(String id) {
+        return this.tasks.stream()
+                .filter(task -> task.getId().equals(id))
+                .findFirst();
     }
 }

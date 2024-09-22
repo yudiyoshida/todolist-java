@@ -1,4 +1,4 @@
-package com.matsugumayudi.todolist.task.usecases.createtask.dtos;
+package com.matsugumayudi.todolist.task.usecases.createTask.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
