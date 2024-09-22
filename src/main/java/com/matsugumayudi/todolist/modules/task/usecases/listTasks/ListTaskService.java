@@ -1,8 +1,8 @@
-package com.matsugumayudi.todolist.task.usecases.listTasks;
+package com.matsugumayudi.todolist.modules.task.usecases.listTasks;
 
-import com.matsugumayudi.todolist.task.dtos.TaskDto;
-import com.matsugumayudi.todolist.task.entities.Task;
-import com.matsugumayudi.todolist.task.repositories.TaskRepository;
+import com.matsugumayudi.todolist.modules.task.dtos.TaskDto;
+import com.matsugumayudi.todolist.modules.task.entities.Task;
+import com.matsugumayudi.todolist.modules.task.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

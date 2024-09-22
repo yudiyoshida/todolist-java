@@ -1,4 +1,4 @@
-package com.matsugumayudi.todolist.exceptions;
+package com.matsugumayudi.todolist.shared.exceptions;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -6,8 +6,6 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-
-import java.util.List;
 
 @ControllerAdvice
 public class ExceptionHandler {

@@ -1,9 +1,9 @@
-package com.matsugumayudi.todolist.task.usecases.createTask;
+package com.matsugumayudi.todolist.modules.task.usecases.createTask;
 
-import com.matsugumayudi.todolist.task.entities.Task;
-import com.matsugumayudi.todolist.task.repositories.TaskRepository;
-import com.matsugumayudi.todolist.task.usecases.createTask.dtos.CreateTaskInputDto;
-import com.matsugumayudi.todolist.task.usecases.createTask.dtos.CreateTaskOutputDto;
+import com.matsugumayudi.todolist.modules.task.entities.Task;
+import com.matsugumayudi.todolist.modules.task.repositories.TaskRepository;
+import com.matsugumayudi.todolist.modules.task.usecases.createTask.dtos.CreateTaskInputDto;
+import com.matsugumayudi.todolist.modules.task.usecases.createTask.dtos.CreateTaskOutputDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

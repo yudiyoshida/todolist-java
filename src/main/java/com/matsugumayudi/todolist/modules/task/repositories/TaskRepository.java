@@ -1,6 +1,6 @@
-package com.matsugumayudi.todolist.task.repositories;
+package com.matsugumayudi.todolist.modules.task.repositories;
 
-import com.matsugumayudi.todolist.task.entities.Task;
+import com.matsugumayudi.todolist.modules.task.entities.Task;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;

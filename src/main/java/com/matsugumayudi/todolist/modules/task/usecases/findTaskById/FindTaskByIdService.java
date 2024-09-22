@@ -1,8 +1,8 @@
-package com.matsugumayudi.todolist.task.usecases.findTaskById;
+package com.matsugumayudi.todolist.modules.task.usecases.findTaskById;
 
-import com.matsugumayudi.todolist.exceptions.NotFoundException;
-import com.matsugumayudi.todolist.task.dtos.TaskDto;
-import com.matsugumayudi.todolist.task.repositories.TaskRepository;
+import com.matsugumayudi.todolist.shared.exceptions.NotFoundException;
+import com.matsugumayudi.todolist.modules.task.dtos.TaskDto;
+import com.matsugumayudi.todolist.modules.task.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

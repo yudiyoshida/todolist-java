@@ -1,6 +1,6 @@
-package com.matsugumayudi.todolist.task.dtos;
+package com.matsugumayudi.todolist.modules.task.dtos;
 
-import com.matsugumayudi.todolist.task.entities.Task;
+import com.matsugumayudi.todolist.modules.task.entities.Task;
 import lombok.Getter;
 
 @Getter

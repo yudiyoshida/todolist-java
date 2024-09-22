@@ -1,10 +1,10 @@
-package com.matsugumayudi.todolist.task.usecases.updateTask;
+package com.matsugumayudi.todolist.modules.task.usecases.updateTask;
 
-import com.matsugumayudi.todolist.dtos.SuccessMessage;
-import com.matsugumayudi.todolist.exceptions.NotFoundException;
-import com.matsugumayudi.todolist.task.entities.Task;
-import com.matsugumayudi.todolist.task.repositories.TaskRepository;
-import com.matsugumayudi.todolist.task.usecases.updateTask.dtos.UpdateTaskInputDto;
+import com.matsugumayudi.todolist.shared.dtos.SuccessMessage;
+import com.matsugumayudi.todolist.shared.exceptions.NotFoundException;
+import com.matsugumayudi.todolist.modules.task.entities.Task;
+import com.matsugumayudi.todolist.modules.task.repositories.TaskRepository;
+import com.matsugumayudi.todolist.modules.task.usecases.updateTask.dtos.UpdateTaskInputDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
