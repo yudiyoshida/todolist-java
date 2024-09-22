@@ -10,8 +10,11 @@ import java.util.List;
 public class TaskRepository {
     private final List<Task> tasks = new ArrayList<>();
 
-    public Task save(Task task) {
+    public void save(Task task) {
         this.tasks.add(task);
-        return task;
+    }
+
+    public List<Task> findAll() {
+        return this.tasks;
     }
 }

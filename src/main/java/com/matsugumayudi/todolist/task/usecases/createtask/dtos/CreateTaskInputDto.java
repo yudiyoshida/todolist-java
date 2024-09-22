@@ -1,8 +1,7 @@
-package com.matsugumayudi.todolist.task.usecases.dtos;
+package com.matsugumayudi.todolist.task.usecases.createtask.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
 
 public record CreateTaskInputDto(
     @NotNull(message = "Title cannot be null")

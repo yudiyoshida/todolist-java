@@ -1,6 +1,6 @@
 package com.matsugumayudi.todolist.task.entities;
 
-import com.matsugumayudi.todolist.task.usecases.dtos.CreateTaskInputDto;
+import com.matsugumayudi.todolist.task.usecases.createtask.dtos.CreateTaskInputDto;
 import lombok.Getter;
 
 import java.util.UUID;
@@ -14,8 +14,8 @@ public class Task {
 
     public Task(CreateTaskInputDto data) {
         this.id = UUID.randomUUID().toString();
-        this.title = data.title();
-        this.description = data.description();
+        this.title = data.title().trim();
+        this.description = data.description().trim();
         this.completed = false;
     }
 }
