@@ -24,4 +24,8 @@ public class TaskRepository {
     public void edit(Task task) {
         this.tasks.put(task.getId(), task);
     }
+
+    public void delete(String id) {
+        this.tasks.remove(id);
+    }
 }
