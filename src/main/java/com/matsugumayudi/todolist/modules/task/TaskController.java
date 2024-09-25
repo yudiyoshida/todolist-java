@@ -10,6 +10,7 @@ import com.matsugumayudi.todolist.modules.task.usecases.findTaskById.FindTaskByI
 import com.matsugumayudi.todolist.modules.task.usecases.listTasks.ListTaskService;
 import com.matsugumayudi.todolist.modules.task.usecases.updateTask.UpdateTaskService;
 import com.matsugumayudi.todolist.modules.task.usecases.updateTask.dtos.UpdateTaskInputDto;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,7 @@ public class TaskController {
     private DeleteTaskService deleteTaskService;
 
     @PostMapping
+    @Operation(summary = "Create a new task", tags = { "Task" })
     public ResponseEntity<CreateTaskOutputDto> createTask(@Valid @RequestBody CreateTaskInputDto body) {
         var result = this.createTaskService.execute(body);
 
@@ -43,6 +45,7 @@ public class TaskController {
     }
 
     @GetMapping
+    @Operation(summary = "List all tasks", tags = { "Task" })
     public ResponseEntity<List<TaskDto>> listTasks() {
         var result = this.listTaskService.execute();
 
@@ -50,6 +53,7 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Find a task by id", tags = { "Task" })
     public ResponseEntity<TaskDto> findTaskById(@PathVariable String id) {
         var result = this.findTaskByIdService.execute(id);
 
@@ -57,6 +61,7 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update a task", tags = { "Task" })
     public ResponseEntity<SuccessMessage> updateTask(@PathVariable String id, @Valid @RequestBody UpdateTaskInputDto body) {
         var result = this.updateTaskService.execute(id, body);
 
@@ -64,6 +69,7 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a task", tags = { "Task" })
     public ResponseEntity<SuccessMessage> deleteTask(@PathVariable String id) {
         var result = this.deleteTaskService.execute(id);
 

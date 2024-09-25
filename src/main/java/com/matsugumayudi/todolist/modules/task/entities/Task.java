@@ -6,10 +6,10 @@ import java.util.UUID;
 
 @Getter
 public class Task {
-    private String id;
-    private String title;
-    private String description;
-    private Boolean completed;
+    private final String id;
+    private final String title;
+    private final String description;
+    private final Boolean completed;
 
     public Task(String title, String description) {
         this.id = UUID.randomUUID().toString();
