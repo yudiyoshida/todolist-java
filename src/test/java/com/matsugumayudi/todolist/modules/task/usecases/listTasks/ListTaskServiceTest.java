@@ -2,6 +2,7 @@ package com.matsugumayudi.todolist.modules.task.usecases.listTasks;
 
 import com.matsugumayudi.todolist.modules.task.entities.Task;
 import com.matsugumayudi.todolist.modules.task.repositories.TaskRepository;
+import com.matsugumayudi.todolist.modules.task.repositories.TaskRepositoryJPA;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -20,7 +21,7 @@ class ListTaskServiceTest {
     private AutoCloseable closeable;
 
     @Mock
-    private TaskRepository taskRepository;
+    private TaskRepositoryJPA taskRepository;
 
     @InjectMocks
     private ListTaskService listTaskService;

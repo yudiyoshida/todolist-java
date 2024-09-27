@@ -2,6 +2,7 @@ package com.matsugumayudi.todolist.modules.task.usecases.createTask;
 
 import com.matsugumayudi.todolist.modules.task.entities.Task;
 import com.matsugumayudi.todolist.modules.task.repositories.TaskRepository;
+import com.matsugumayudi.todolist.modules.task.repositories.TaskRepositoryJPA;
 import com.matsugumayudi.todolist.modules.task.usecases.createTask.dtos.CreateTaskInputDto;
 import com.matsugumayudi.todolist.modules.task.usecases.createTask.dtos.CreateTaskOutputDto;
 import org.junit.jupiter.api.AfterEach;
@@ -22,7 +23,7 @@ class CreateTaskServiceTest {
     private AutoCloseable closeable;
 
     @Mock
-    private TaskRepository taskRepository;
+    private TaskRepositoryJPA taskRepository;
 
     @Autowired
     @InjectMocks

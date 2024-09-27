@@ -2,6 +2,7 @@ package com.matsugumayudi.todolist.modules.task.usecases.deleteTask;
 
 import com.matsugumayudi.todolist.modules.task.entities.Task;
 import com.matsugumayudi.todolist.modules.task.repositories.TaskRepository;
+import com.matsugumayudi.todolist.modules.task.repositories.TaskRepositoryJPA;
 import com.matsugumayudi.todolist.shared.dtos.SuccessMessage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +23,7 @@ class DeleteTaskServiceTest {
     private AutoCloseable closeable;
 
     @Mock
-    private TaskRepository taskRepository;
+    private TaskRepositoryJPA taskRepository;
 
     @InjectMocks
     private DeleteTaskService deleteTaskService;
@@ -63,7 +64,7 @@ class DeleteTaskServiceTest {
         SuccessMessage result = this.deleteTaskService.execute(id);
 
         // Assert
-        Mockito.verify(this.taskRepository, Mockito.times(1)).delete(task.getId());
+        Mockito.verify(this.taskRepository, Mockito.times(1)).delete(task);
         assertEquals("Task deleted", result.message());
     }
 }

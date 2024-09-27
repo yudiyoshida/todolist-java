@@ -3,6 +3,7 @@ package com.matsugumayudi.todolist.modules.task.usecases.findTaskById;
 import com.matsugumayudi.todolist.modules.task.dtos.TaskDto;
 import com.matsugumayudi.todolist.modules.task.entities.Task;
 import com.matsugumayudi.todolist.modules.task.repositories.TaskRepository;
+import com.matsugumayudi.todolist.modules.task.repositories.TaskRepositoryJPA;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -20,7 +21,7 @@ class FindTaskByIdServiceTest {
     private AutoCloseable closeable;
 
     @Mock
-    private TaskRepository taskRepository;
+    private TaskRepositoryJPA taskRepository;
 
     @InjectMocks
     private FindTaskByIdService findTaskByIdService;
