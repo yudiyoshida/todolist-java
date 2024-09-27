@@ -1,6 +1,7 @@
 package com.matsugumayudi.todolist.modules.task;
 
 import com.matsugumayudi.todolist.modules.task.usecases.deleteTask.DeleteTaskService;
+import com.matsugumayudi.todolist.modules.task.usecases.updateTaskStatus.UpdateTaskStatusService;
 import com.matsugumayudi.todolist.shared.dtos.SuccessMessage;
 import com.matsugumayudi.todolist.modules.task.dtos.TaskDto;
 import com.matsugumayudi.todolist.modules.task.usecases.createTask.CreateTaskService;
@@ -35,6 +36,9 @@ public class TaskController {
 
     @Autowired
     private DeleteTaskService deleteTaskService;
+
+    @Autowired
+    private UpdateTaskStatusService updateTaskStatusService;
 
     @PostMapping
     @Operation(summary = "Create a new task", tags = { "Task" })
@@ -72,6 +76,14 @@ public class TaskController {
     @Operation(summary = "Delete a task", tags = { "Task" })
     public ResponseEntity<SuccessMessage> deleteTask(@PathVariable String id) {
         var result = this.deleteTaskService.execute(id);
+
+        return ResponseEntity.ok(result);
+    }
+
+    @PatchMapping("/{id}/status")
+    @Operation(summary = "Update a task status", tags = { "Task" })
+    public ResponseEntity<SuccessMessage> updateTaskStatus(@PathVariable String id) {
+        var result = this.updateTaskStatusService.execute(id);
 
         return ResponseEntity.ok(result);
     }
